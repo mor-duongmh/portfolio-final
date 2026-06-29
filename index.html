@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lê Thanh Huyền — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="booting">
+
+<template id="__bundler_thumbnail" data-bg-color="#000000">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#000000"/>
+    <g fill="#d8f24c">
+      <path d="M600 250 l24 78 78 -30 -46 70 70 46 -82 8 8 82 -52 -64 -52 64 8 -82 -82 -8 70 -46 -46 -70 78 30 z" opacity="0.9"/>
+    </g>
+    <text x="600" y="470" font-family="'Space Grotesk',sans-serif" font-size="150" font-weight="700" fill="#f4efe3" text-anchor="middle" letter-spacing="4">PORTFOLIO</text>
+    <text x="600" y="560" font-family="'Pinyon Script',cursive" font-size="70" fill="#e9f88a" text-anchor="middle">Lê Thanh Huyền</text>
+  </svg>
+</template>
+
+<!-- ============ SVG sprite ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sun" viewBox="0 0 100 100"><polygon class="sunpoly" fill="#d8f24c"/></symbol>
+  <symbol id="spark" viewBox="0 0 100 100">
+    <path d="M50 2 Q57 43 98 50 Q57 57 50 98 Q43 57 2 50 Q43 43 50 2 Z" fill="#d8f24c"/>
+  </symbol>
+  <symbol id="arrow" viewBox="0 0 44 44">
+    <path d="M5 22 H33" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" fill="none"/>
+    <path d="M24 10 L37 22 L24 34" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+  <symbol id="uparrow" viewBox="0 0 24 24">
+    <path d="M6 18 L18 6 M9 6 H18 V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<!-- ============ Fixed decor (corner glow) ============ -->
+<div class="decor" aria-hidden="true">
+  <span class="glow bl"></span><span class="glow br"></span><span class="glow tr"></span>
+</div>
+
+<!-- ============ Custom cursor ============ -->
+<div id="cur-ring"><span class="label">DRAG</span></div>
+<div id="cur-dot"></div>
+
+<!-- ============ Top + bottom chrome ============ -->
+<header class="chrome topbar">
+  <span class="brandmark">LÊ THANH HUYỀN — PORTFOLIO</span>
+  <nav class="nav">
+    <a href="#" class="active" data-goto="0">TRANG CHỦ</a>
+    <a href="#" data-goto="1">GIỚI THIỆU</a>
+    <a href="#" data-goto="2">KỸ NĂNG</a>
+    <a href="#" data-goto="8">DỰ ÁN</a>
+    <a href="#" data-goto="11">LIÊN HỆ</a>
+  </nav>
+</header>
+<div class="chrome botbar">
+  <div class="dots" id="dots" aria-label="Chuyển trang"></div>
+</div>
+<button class="next-arrow" aria-label="Next"><svg><use href="#arrow"/></svg></button>
+
+<!-- ============ Lightbox ============ -->
+<div id="lightbox" aria-hidden="true"><img alt="Xem ảnh"><button class="lb-close" aria-label="Đóng">✕</button></div>
+
+<!-- ============ Video player ============ -->
+<div id="vlightbox" aria-hidden="true"><div class="vplayer"><div class="vframe"></div></div><button class="lb-close" aria-label="Đóng">✕</button></div>
+
+<!-- ============ Viewport / track ============ -->
+<div id="viewport">
+ <div id="track">
+
+  <!-- ===== P1 — COVER ===== -->
+  <section class="panel" data-screen-label="01">
+   <div class="panel__inner">
+    <div class="hero">
+      <div class="slot" data-reveal="left" style="--d:.05s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=17LDKkyRRZLJKK_uHPyd8wq5Lm03nLnfr&sz=w1600" alt="Ảnh bìa 1" referrerpolicy="no-referrer"></div>
+      <div class="slot" data-reveal="rise" style="--d:.2s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1j_aMbXqspQXUNbdJXKHiQxiBQm2MaDw3&sz=w1600" alt="Ảnh bìa 2" referrerpolicy="no-referrer"></div>
+      <div class="slot" data-reveal="right" style="--d:.05s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1ipwfYkcitSSDqrcwXDet21drHB6xoKCF&sz=w1600" alt="Ảnh bìa 3" referrerpolicy="no-referrer"></div>
+    </div>
+    <div class="hero__overlay">
+      <span class="spark" style="position:absolute;top:15%;left:50%;width:3.4vh;height:3.4vh"><svg><use href="#spark"/></svg></span>
+      <span class="spark" style="position:absolute;top:63%;left:22%;width:3vh;height:3vh"><svg><use href="#spark"/></svg></span>
+      <span class="spark" style="position:absolute;top:60%;left:80%;width:3vh;height:3vh"><svg><use href="#spark"/></svg></span>
+      <h1 class="hero__word maskline"><span style="--d:.5s">PORTFOLIO</span></h1>
+      <div class="hero__script maskline script-line" style="font-family:'Blosta Script','Pinyon Script',cursive;font-size:clamp(34px,6vw,104px);line-height:1.5;padding:.32em 0 .5em"><span style="--d:.72s">Le Thanh Huyen</span></div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P2 — XIN CHÀO ===== -->
+  <section class="panel" data-screen-label="02">
+   <div class="panel__inner">
+    <div class="about">
+      <h2 class="about__title h-display" data-reveal style="--d:.05s">Xin chào, mình là Huyền</h2>
+      <div class="about__photo">
+        <div class="slot" data-reveal="left" style="--d:.15s;position:relative;overflow:hidden"><img class="cover-img" src="https://drive.google.com/thumbnail?id=170hX1MxTzYciIgJ6Ha4nRwre5l_Yfr5v&sz=w1600" alt="Ảnh chân dung" referrerpolicy="no-referrer"></div>
+        <span class="sun" style="position:absolute;bottom:-4vh;right:-3vh;width:13vh;height:13vh;z-index:6;--d:.5s" data-reveal="scale"><svg><use href="#sun"/></svg></span>
+      </div>
+      <div class="about__media">
+        <div class="slot" data-reveal="scale" style="--d:.2s;position:relative;overflow:hidden"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1lVkhKqvUYhrs1Ln6LUqGRjwSjLh7sSum&sz=w1600" alt="Ảnh sự kiện" referrerpolicy="no-referrer"></div>
+        <div class="slot" data-reveal="scale" style="--d:.3s;position:relative;overflow:hidden"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1L65tLOD6nvavA0oF5tgbAKSODBmaEVA1&sz=w1600" alt="Ảnh" referrerpolicy="no-referrer" style="object-fit: cover; width: 319px; height: 550px; object-position: 40% 32%"></div>
+      </div>
+      <div class="about__exp" data-reveal style="--d:.42s">
+        <p class="body" style="font-weight:400">Xin chào, mình là Huyền – một người yêu thích sáng tạo, kết nối con người và tạo ra những trải nghiệm đáng nhớ thông qua các sự kiện. Với kinh nghiệm trong lĩnh vực truyền thông nội bộ và tổ chức sự kiện doanh nghiệp, mình luôn mong muốn biến những ý tưởng thành những chương trình mang lại giá trị thực tế và cảm xúc tích cực cho người tham gia.</p>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P3 — KỸ NĂNG (intro) ===== -->
+  <section class="panel" data-screen-label="03">
+   <div class="panel__inner">
+    <span class="sun" style="position:absolute;top:30%;right:-5vh;width:13vh;height:13vh;z-index:0" data-depth="1.3"><svg><use href="#sun"/></svg></span>
+    <div class="skintro">
+      <div class="skintro__left">
+        <h2 class="h-display" data-reveal style="--d:.05s">Những kỹ năng Huyền có</h2>
+        <p data-reveal style="--d:.2s">Đằng sau mỗi sự kiện hay chiến dịch truyền thông là rất nhiều công việc cần được kết nối với nhau. Đó cũng là những điều mình đang làm mỗi ngày.</p>
+      </div>
+      <div class="skmenu">
+        <div class="row" data-reveal="right" style="--d:.25s"><span class="rn">01</span><span class="rt">Lên ý tưởng &amp; xây dựng chương trình</span></div>
+        <div class="row" data-reveal="right" style="--d:.35s"><span class="rn">02</span><span class="rt">Tổ chức &amp; điều phối</span></div>
+        <div class="row" data-reveal="right" style="--d:.45s"><span class="rn">03</span><span class="rt">Truyền thông &amp; biên tập</span></div>
+        <div class="row" data-reveal="right" style="--d:.55s"><span class="rn">04</span><span class="rt">Media</span></div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P4 — KỸ NĂNG (chi tiết) ===== -->
+  <section class="panel" data-screen-label="04">
+   <div class="panel__inner">
+    <div class="skill4">
+      <h2 class="h-display" data-reveal style="--d:.05s">Chi tiết kỹ năng</h2>
+      <div class="skill4__grid">
+        <div class="expcard" data-reveal style="--d:.18s">
+          <span class="cnum">01</span>
+          <h4>Lên ý tưởng &amp; xây dựng chương trình</h4>
+          <ul class="sklist">
+            <li>Lên ý tưởng, concept phù hợp với từng sự kiện</li>
+            <li>Lên kế hoạch triển khai</li>
+            <li>Xây dựng nội dung và kịch bản chương trình</li>
+            <li>Lên kịch bản MC</li>
+          </ul>
+        </div>
+        <div class="expcard" data-reveal style="--d:.28s">
+          <span class="cnum">02</span>
+          <h4>Tổ chức &amp; điều phối</h4>
+          <ul class="sklist">
+            <li>Quản lý timeline</li>
+            <li>Phối hợp, làm việc với nhà cung cấp</li>
+            <li>Điều phối nhân sự</li>
+            <li>Kiểm soát tiến độ thực hiện</li>
+          </ul>
+        </div>
+        <div class="expcard" data-reveal style="--d:.38s">
+          <span class="cnum">03</span>
+          <h4>Truyền thông &amp; biên tập</h4>
+          <ul class="sklist">
+            <li>Lên ý tưởng truyền thông theo chủ đề</li>
+            <li>Xây dựng kế hoạch truyền thông</li>
+            <li>Sáng tạo nội dung</li>
+            <li>Viết bài truyền thông</li>
+            <li>Triển khai truyền thông đa kênh</li>
+          </ul>
+        </div>
+        <div class="expcard" data-reveal style="--d:.48s">
+          <span class="cnum">04</span>
+          <h4>Media</h4>
+          <ul class="sklist">
+            <li>Quay, chụp sự kiện</li>
+            <li>Thiết kế ấn phẩm theo concept sự kiện</li>
+            <li>Dựng video</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P5 — ẢNH CHỤP SỰ KIỆN ===== -->
+  <section class="panel" data-screen-label="05">
+   <div class="panel__inner">
+    <div class="gal">
+      <div class="gal__head">
+        <h2 class="h-display" data-reveal style="--d:.05s">Ảnh chụp sự kiện</h2>
+        <p data-reveal style="--d:.15s">Khoảnh khắc &amp; tư liệu hình ảnh ghi lại tại các chương trình.</p>
+      </div>
+      <div class="gal__grid g-events">
+        <div class="gjrow">
+          <div class="slot" data-reveal="scale" style="--ar:1;--d:.18s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1eBH6NGAFvyx_I6t9i94vFJuypZrFaF2I&sz=w1600" alt="Ảnh sự kiện" referrerpolicy="no-referrer"></div>
+          <div class="slot" data-reveal style="--ar:1;--d:.26s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=12WpVQhRFCH8PQlRcQheK3hQkYbZTKD92&sz=w1600" alt="Ảnh sự kiện" referrerpolicy="no-referrer"></div>
+          <div class="slot" data-reveal style="--ar:1.5;--d:.32s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1aHH8Hr55OSPnuAseyxFx1dLjOYe_shPO&sz=w1600" alt="Ảnh sự kiện" referrerpolicy="no-referrer"></div>
+        </div>
+        <div class="gjrow">
+          <div class="slot" data-reveal style="--ar:1;--d:.38s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1s5z4MkinSrwVlNKthKXIo8kQnCgFX50n&sz=w1600" alt="Ảnh sự kiện" referrerpolicy="no-referrer"></div>
+          <div class="slot" data-reveal style="--ar:0.667;--d:.44s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1xgXP1QBlwQf4I0WcT0gasT1KialhQ43Z&sz=w1600" alt="Ảnh sự kiện" referrerpolicy="no-referrer"></div>
+          <div class="slot" data-reveal style="--ar:1;--d:.5s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1rtA9I7TOAHBxX3Ka33MsXBTzE9mBG3WY&sz=w1600" alt="Ảnh sự kiện" referrerpolicy="no-referrer"></div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P6 — ẤN PHẨM SỰ KIỆN ===== -->
+  <section class="panel" data-screen-label="06">
+   <div class="panel__inner">
+    <div class="gal">
+      <div class="gal__head">
+        <h2 class="h-display" data-reveal style="--d:.05s">Ấn phẩm sự kiện</h2>
+        <p data-reveal style="--d:.15s">Thiết kế ấn phẩm theo concept: banner, standee, poster, ấn phẩm truyền thông.</p>
+      </div>
+      <div class="gal__grid g-prints">
+        <div class="gjrow">
+          <div class="slot" data-reveal style="--ar:0.705;--d:.2s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=10UAi2B1pHv9WpvKab1s7-tKBsiHWpTaV&sz=w1600" alt="Ấn phẩm" referrerpolicy="no-referrer"></div>
+          <div class="slot" data-reveal style="--ar:0.705;--d:.3s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1LbjKWUyPf3CYvla33aZsoSKNELpPPqD5&sz=w1600" alt="Ấn phẩm" referrerpolicy="no-referrer"></div>
+          <div class="slot" data-reveal style="--ar:0.705;--d:.4s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1s1e-XM91Ysq8DjJkW93AnO29rEu2Yfih&sz=w1600" alt="Ấn phẩm" referrerpolicy="no-referrer"></div>
+        </div>
+        <div class="gjrow">
+          <div class="slot" data-reveal style="--ar:1.778;--d:.5s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=15sVZKWjsrT1-G47PThe8A2UuSPxCcp5I&sz=w1600" alt="Ấn phẩm" referrerpolicy="no-referrer"></div>
+          <div class="slot" data-reveal style="--ar:1.418;--d:.6s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1VxethseAI9JEXosIaZKGRVFmuiE6lW6V&sz=w1600" alt="Ấn phẩm" referrerpolicy="no-referrer"></div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P7 — VIDEO ===== -->
+  <section class="panel" data-screen-label="07">
+   <div class="panel__inner">
+    <div class="vidwrap">
+      <h2 class="h-display" data-reveal style="--d:.05s">Video Huyền quay &amp; dựng</h2>
+      <div class="vidgrid">
+        <div class="vidcard" data-reveal style="--d:.18s" data-embed="https://drive.google.com/file/d/1xKScSjLortmqpkLRtwb2Uh9lcIK8GK06/preview">
+          <a class="vthumb" href="https://drive.google.com/file/d/1xKScSjLortmqpkLRtwb2Uh9lcIK8GK06/view" target="_blank" rel="noopener"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1eX-vFiB8YB6Bhs6qEymK_TY3rLeIZo7J&sz=w1600" alt="Visual sự kiện" referrerpolicy="no-referrer"><span class="play"></span></a>
+          <div class="vmeta"><h4>Visual sự kiện</h4><a href="https://drive.google.com/file/d/1xKScSjLortmqpkLRtwb2Uh9lcIK8GK06/view" target="_blank" rel="noopener">Xem ▸</a></div>
+        </div>
+        <div class="vidcard" data-reveal style="--d:.26s" data-embed="https://drive.google.com/file/d/136_5DW1eGBx96u8tDs9LHgPRCKnSgpY1/preview">
+          <a class="vthumb" href="https://drive.google.com/file/d/136_5DW1eGBx96u8tDs9LHgPRCKnSgpY1/view" target="_blank" rel="noopener"><img class="cover-img" src="https://drive.google.com/thumbnail?id=15jpbuaq5J0AZRgYhAmrkQm2AS7zGrz4K&sz=w1600" alt="Series MOR èn MORE" referrerpolicy="no-referrer"><span class="play"></span></a>
+          <div class="vmeta"><h4>Series “MOR èn MORE”</h4><a href="https://drive.google.com/file/d/136_5DW1eGBx96u8tDs9LHgPRCKnSgpY1/view" target="_blank" rel="noopener">Xem ▸</a></div>
+        </div>
+        <div class="vidcard" data-reveal style="--d:.34s" data-embed="https://drive.google.com/file/d/1rAYNnHvyXANILLWNFjsK_H1YpebIt-pp/preview">
+          <a class="vthumb" href="https://drive.google.com/file/d/1rAYNnHvyXANILLWNFjsK_H1YpebIt-pp/view" target="_blank" rel="noopener"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1rAYNnHvyXANILLWNFjsK_H1YpebIt-pp&sz=w1600" alt="Video phỏng vấn" referrerpolicy="no-referrer"><span class="play"></span></a>
+          <div class="vmeta"><h4>Video phỏng vấn</h4><a href="https://drive.google.com/file/d/1rAYNnHvyXANILLWNFjsK_H1YpebIt-pp/view" target="_blank" rel="noopener">Xem ▸</a></div>
+        </div>
+        <div class="vidcard" data-reveal style="--d:.42s" data-embed="https://www.youtube.com/embed/u42Ub1kOrPs?autoplay=1&rel=0&vq=hd1080&hd=1">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=u42Ub1kOrPs" target="_blank" rel="noopener"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1wNyqAyPfqJVo5NPmAGmEn7M6phD2qqf6&sz=w1600" alt="Recap sự kiện" referrerpolicy="no-referrer"><span class="play"></span></a>
+          <div class="vmeta"><h4>Recap sự kiện</h4><a href="https://www.youtube.com/watch?v=u42Ub1kOrPs" target="_blank" rel="noopener">Xem ▸</a></div>
+        </div>
+        <div class="vidcard" data-reveal style="--d:.5s" data-embed="https://drive.google.com/file/d/1riJeqi_q117q2txp1jZ1UtQo6F7LcCvg/preview">
+          <a class="vthumb" href="https://drive.google.com/file/d/1riJeqi_q117q2txp1jZ1UtQo6F7LcCvg/view" target="_blank" rel="noopener"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1_S0JAOLWC9MZsMIgr8lhPY4pVWqxRfj-&sz=w1600" alt="Video ngắn" referrerpolicy="no-referrer"><span class="play"></span></a>
+          <div class="vmeta"><h4>Video ngắn</h4><a href="https://drive.google.com/file/d/1riJeqi_q117q2txp1jZ1UtQo6F7LcCvg/view" target="_blank" rel="noopener">Xem ▸</a></div>
+        </div>
+        <div class="vidcard" data-reveal style="--d:.58s" data-embed="https://www.youtube.com/embed/CUujekLCaUs?autoplay=1&rel=0&vq=hd1080&hd=1">
+          <a class="vthumb" href="https://www.youtube.com/watch?v=CUujekLCaUs" target="_blank" rel="noopener"><img class="cover-img" src="https://img.youtube.com/vi/CUujekLCaUs/maxresdefault.jpg" alt="Tổng kết chuỗi sự kiện" referrerpolicy="no-referrer"><span class="play"></span></a>
+          <div class="vmeta"><h4>Tổng kết chuỗi sự kiện</h4><a href="https://www.youtube.com/watch?v=CUujekLCaUs" target="_blank" rel="noopener">Xem ▸</a></div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P9 — HÀNH TRÌNH ===== -->
+  <section class="panel" data-screen-label="08">
+   <div class="panel__inner">
+    <div class="proc">
+      <h2 class="proc__title h-display" data-reveal style="--d:.15s">Hành trình của Huyền</h2>
+      <div class="proc__row">
+        <div class="pcircle" data-reveal="scale" style="--d:.25s"><span class="num">01</span><h4>Wedding Planner</h4><p>Chan Wedding Planner<br>02/2022 – 01/2023</p></div>
+        <span class="connector"></span>
+        <div class="pcircle down" data-reveal="scale" style="--d:.4s"><span class="num">02</span><h4>Truyền thông nội bộ</h4><p>Công ty TNHH G&amp;P Mama sữa non<br>02/2023 – 02/2024</p></div>
+        <span class="connector"></span>
+        <div class="pcircle" data-reveal="scale" style="--d:.55s"><span class="num">03</span><h4>Truyền thông nội bộ</h4><p>Công ty CP phần mềm MOR<br>03/2024 – nay</p></div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P10 — WEDDING PLANNER ===== -->
+  <section class="panel" data-screen-label="09">
+   <div class="panel__inner">
+    <div class="case">
+      <div class="case__media five">
+        <a class="shot s-a" data-reveal="left" style="--d:.12s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1EgrCkqCHo-yZtczdj-HNvnfeBGZQ-8nW&sz=w1600" alt="Wedding planner" referrerpolicy="no-referrer"></a>
+        <a class="shot s-b" data-reveal="scale" style="--d:.24s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1OnpZbaj3SFia2lvXi4eq5eQZgj6F2VcQ&sz=w1600" alt="Wedding planner" referrerpolicy="no-referrer"></a>
+        <a class="shot s-c" data-reveal="scale" style="--d:.32s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1ESkenN2y5Ya5HmxzXf4La6V-3-e_CB3N&sz=w1600" alt="Wedding planner" referrerpolicy="no-referrer"></a>
+        <a class="shot s-d" data-reveal="scale" style="--d:.4s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1MYWVVO400aXIpBHohKc7zxsFJCosDpea&sz=w1600" alt="Wedding planner" referrerpolicy="no-referrer"></a>
+        <a class="shot s-e" data-reveal="scale" style="--d:.48s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=12obb7xklX8W6XzaHiA_VcSB-y9jUVuDl&sz=w1600" alt="Wedding planner" referrerpolicy="no-referrer"></a>
+        <span class="sun" style="position:absolute;top:42%;left:-3vh;width:11vh;height:11vh;z-index:6"><svg><use href="#sun"/></svg></span>
+      </div>
+      <div class="case__info">
+        <span class="kicker" data-reveal style="--d:.15s">Dự án 01</span>
+        <h3 data-reveal style="--d:.22s">Wedding Planner</h3>
+        <p class="lead" data-reveal style="--d:.3s">Trong vai trò Wedding Planner tại Chan Wedding Planner, mình đã đồng hành cùng các cặp đôi trong quá trình chuẩn bị và tổ chức ngày cưới – một trong những cột mốc quan trọng nhất trong cuộc đời họ.</p>
+        <div class="case__res" data-reveal style="--d:.4s">
+          <h5>Kết quả đạt được</h5>
+          <ul class="reslist">
+            <li>Tham gia tổ chức nhiều tiệc cưới với quy mô khác nhau</li>
+            <li>Đảm bảo chương trình diễn ra đúng kế hoạch</li>
+            <li>Phối hợp hiệu quả giữa khách hàng, gia đình và các đối tác</li>
+            <li>Mang đến trải nghiệm trọn vẹn trong ngày đặc biệt của khách hàng</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P11 — SỰ KIỆN NỘI BỘ ===== -->
+  <section class="panel panel--wall" data-screen-label="10">
+   <div class="panel__inner">
+    <div class="evwall">
+      <a class="shot ev-a" data-reveal="scale" style="--d:.08s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1SUPI_TovaZwMzi8-v3PdOUu5-Z5rppOw&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-b" data-reveal="scale" style="--d:.16s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1eHCgDR5C7XuByhhNN4v98BT9Oq2kdXwp&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-c" data-reveal="scale" style="--d:.2s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=13qFwT1TdVweihNaXNj7e5KOx9b75TwZI&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-d" data-reveal="scale" style="--d:.24s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1Jb7eiLhxcRYN3_wtMCbp95jYVQSoj77h&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-e" data-reveal="scale" style="--d:.28s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1kfyP8OZ6a4kXC2hbDke3cDZaylw5F0qk&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-f" data-reveal="scale" style="--d:.32s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=14lYSEurpbSWsbjAz-AyiaehSvwGiFrSx&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-g" data-reveal="scale" style="--d:.36s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1MMeLu3O9aY4dfPvh1stsb6lk9E52esZl&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-h" data-reveal="scale" style="--d:.4s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1i5nd6r-GJG6-cgEsIWURwf1I4P3i_2B4&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-i" data-reveal="scale" style="--d:.34s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=18daWCCQkJ27TRoPRno8-02lp0Wc6ZDNV&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-j" data-reveal="scale" style="--d:.38s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=14Qomr7-iOMeEkyV5kzZIMv1CGYRXHG4c&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-k" data-reveal="scale" style="--d:.18s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1rGJXrBFh_qZWIVeMksMnmz8WCRMS5_X5&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-l" data-reveal="scale" style="--d:.42s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1yzRzJH9WD95DBqQhsTPf17iFymCtk85U&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-m" data-reveal="scale" style="--d:.46s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1gsiuwQZpR61ldKvLGFvjXOQct0mdARJo&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+      <a class="shot ev-n" data-reveal="scale" style="--d:.5s"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1C5-1XCz_riN_Z4YzRPZed_PsraMP-dBW&sz=w1600" alt="Sự kiện nội bộ" referrerpolicy="no-referrer"></a>
+    </div>
+    <div class="evcard-wrap">
+      <div class="evcard">
+        <span class="kicker" data-reveal style="--d:.15s">Dự án 02</span>
+        <h3 class="h-display" data-reveal style="--d:.22s">Sự kiện nội bộ</h3>
+        <p class="lead" data-reveal style="--d:.3s">Tham gia xây dựng và triển khai nhiều chương trình nội bộ nhằm tăng cường sự gắn kết và lan tỏa văn hóa doanh nghiệp.</p>
+        <ul class="reslist" data-reveal style="--d:.38s">
+          <li>Tổ chức thành công nhiều chương trình quy mô đa dạng cho trên 200 nhân sự</li>
+          <li>100% sự kiện đạt trên 90% nhân sự đánh giá hài lòng</li>
+          <li>Được đánh giá có nhiều ý tưởng mới mẻ trong sự kiện</li>
+        </ul>
+      </div>
+      <span class="sun" style="position:absolute;top:calc(var(--u)*-3.2);right:calc(var(--u)*-3.2);width:6.4vh;height:6.4vh;z-index:9"><svg><use href="#sun"/></svg></span>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P12 — TRUYỀN THÔNG ===== -->
+  <section class="panel" data-screen-label="11">
+   <div class="panel__inner">
+    <div class="case">
+      <div class="case__media social">
+        <div class="sfcard" data-reveal="scale" style="--d:.12s">
+          <div class="sfhead"><span class="sfplat">Tiktok</span><span class="sftitle">Cuộc sống tại Colos Multi</span></div>
+          <a class="sfmedia"><img class="cover-img" src="https://drive.google.com/thumbnail?id=13nHsVg3OO6BQKHHUN0RaPXpVNevFep4D&sz=w1600" alt="Cuộc sống tại Colos Multi" referrerpolicy="no-referrer"></a>
+        </div>
+        <div class="sfcard" data-reveal="scale" style="--d:.22s">
+          <div class="sfhead"><span class="sfplat">Tiktok</span><span class="sftitle">Nuôi con cùng Colos Multi</span></div>
+          <a class="sfmedia"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1QAlY3cUlfILwfgx6OfPtHFoPrLJ72GR-&sz=w1600" alt="Nuôi con cùng Colos Multi" referrerpolicy="no-referrer"></a>
+        </div>
+        <div class="sfcard" data-reveal="scale" style="--d:.32s">
+          <div class="sfhead"><span class="sfplat">Tiktok</span><span class="sftitle">Cư dân MOR SOFTWARE</span></div>
+          <a class="sfmedia"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1r-s5JSwxxl1w_XfkJkBrZRoKFrhEmZAl&sz=w1600" alt="Cư dân MOR SOFTWARE" referrerpolicy="no-referrer"></a>
+        </div>
+        <div class="sfcard" data-reveal="scale" style="--d:.42s">
+          <div class="sfhead"><span class="sfplat">Group Facebook</span><span class="sftitle">MOR's Dream-makers</span></div>
+          <a class="sfmedia"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1XVTftKKyQAG8pBJkCSjmEtsBAC9p3jkf&sz=w1600" alt="MOR's Dream-makers" referrerpolicy="no-referrer"></a>
+        </div>
+        <span class="sun" style="position:absolute;bottom:-3.5vh;right:-3.5vh;width:11vh;height:11vh;z-index:6"><svg><use href="#sun" style="stroke-width: 1.5px"/></svg></span>
+      </div>
+      <div class="case__info">
+        <span class="kicker" data-reveal style="--d:.15s">Dự án 03</span>
+        <h3 data-reveal style="--d:.22s">Truyền thông</h3>
+        <p class="lead" data-reveal style="--d:.3s">Bên cạnh việc tổ chức sự kiện, mình cũng tham gia xây dựng và triển khai các hoạt động truyền thông nhằm lan tỏa thông tin, văn hóa doanh nghiệp, tăng cường sự kết nối giữa nhân viên cũng như quảng bá hình ảnh công ty ra bên ngoài.</p>
+        <div class="case__res" data-reveal style="--d:.4s">
+          <h5>Kết quả đạt được</h5>
+          <ul class="reslist">
+            <li>Bài truyền thông nội bộ nhận nhiều lượt tương tác, thu hút sự quan tâm của nhân sự</li>
+            <li>Ý tưởng truyền thông mới lạ — nổi bật là chuỗi video ngắn “MOR èn MORE”</li>
+            <li>Đưa giá trị cốt lõi của công ty đến gần hơn với nhân sự qua các chiến dịch</li>
+            <li>Tham gia xây dựng &amp; quản lý kênh Facebook, TikTok, tăng tương tác đa nền tảng</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===== P13 — CẢM ƠN ===== -->
+  <section class="panel" data-screen-label="12">
+   <div class="panel__inner">
+    <span class="spark" style="position:absolute;top:14%;left:46%;width:3vh;height:3vh;z-index:6" data-reveal="scale"><svg><use href="#spark"/></svg></span>
+    <div class="closing">
+      <div class="closing__left">
+        <div class="closing__word maskline-wrap">
+          <span data-reveal style="--d:.1s">Cảm ơn</span>
+          <span class="script" data-reveal style="--d:.25s">Thank you</span>
+        </div>
+        <p class="closing__msg" data-reveal style="--d:.35s">Cảm ơn bạn đã dành thời gian xem portfolio của mình. Mình rất trân trọng sự quan tâm của quý công ty và hy vọng sẽ có cơ hội được đồng hành, hợp tác trong những dự án sắp tới. Nếu có bất kỳ câu hỏi hay ý tưởng nào, đừng ngần ngại liên hệ với mình nhé!</p>
+        <div class="closing__contact">
+          <div class="citem" data-reveal style="--d:.45s"><span class="ar" style="width:2.6vh;height:2.6vh"><svg><use href="#uparrow"/></svg></span><h4>Email</h4><p>thanhhuyen.lth23@gmail.com</p></div>
+          <div class="citem" data-reveal style="--d:.53s"><span class="ar" style="width:2.6vh;height:2.6vh"><svg><use href="#uparrow"/></svg></span><h4>Điện thoại</h4><p>0888 488 399</p></div>
+          <div class="citem" data-reveal style="--d:.61s"><span class="ar" style="width:2.6vh;height:2.6vh"><svg><use href="#uparrow"/></svg></span><h4>Facebook</h4><p>Le Thanh Huyen</p></div>
+        </div>
+      </div>
+      <div class="closing__right" data-reveal="scale" style="--d:.3s">
+        <div class="slot" style="width: 640px; height: 664px"><img class="cover-img" src="https://drive.google.com/thumbnail?id=1NB9jVfhXG5i-mH21-CguMVavGds8zv4O&sz=w1600" alt="Chân dung" referrerpolicy="no-referrer" style="object-fit: contain; width: 581px; opacity: 0.86; height: 573px"></div>
+        <span class="sun" data-reveal="scale" style="--d:.45s"><svg><use href="#sun"/></svg></span>
+      </div>
+    </div>
+   </div>
+  </section>
+
+ </div>
+</div>
+
+<!-- ============ Intro loader + curtain ============ -->
+
+<script>
+/* build spiky-sun polygon points */
+(function(){
+  const spikes=22,cx=50,cy=50,Ro=49,Ri=33;let pts=[];
+  for(let i=0;i<spikes*2;i++){const r=i%2?Ri:Ro;const a=(Math.PI*i)/spikes - Math.PI/2;
+    pts.push((cx+r*Math.cos(a)).toFixed(2)+','+(cy+r*Math.sin(a)).toFixed(2));}
+  document.querySelectorAll('.sunpoly').forEach(p=>p.setAttribute('points',pts.join(' ')));
+})();
+</script>
+<script src="image-slot.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
