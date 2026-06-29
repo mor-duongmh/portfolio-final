@@ -69,22 +69,29 @@
   /* ---------- navigation ---------- */
   function clamp(v){return Math.max(0,Math.min(maxT(),v));}
   function goTo(i){ target = clamp(i*vw); }
-  function next(){ goTo(Math.round(current/vw)+1); }
-  function prev(){ goTo(Math.round(current/vw)-1); }
+  function pageOf(px){ return Math.round(px/vw); }   // committed page index
+  function next(){ goTo(pageOf(target)+1); }
+  function prev(){ goTo(pageOf(target)-1); }
 
-  /* snap after wheel idle */
-  let snapTimer=null;
-  function scheduleSnap(){
-    clearTimeout(snapTimer);
-    snapTimer=setTimeout(()=>{ target = clamp(Math.round(target/vw)*vw); },140);
-  }
-
-  /* wheel: vertical or horizontal both scroll horizontally */
+  /* wheel / trackpad: commit exactly one page per gesture, immune to momentum.
+     A trackpad swipe makes the OS emit a ~1s tail of decaying wheel events.
+     Accumulating that tail into a free target overshot the page, then the
+     late re-snap yanked it back — the visible stutter. We step once, then
+     swallow the rest of the tail until the wheel goes quiet. */
+  let wheelLock=false, wheelAccum=0, wheelIdle=null;
+  const STEP=40;                                     // px of intent per step
   window.addEventListener('wheel',(e)=>{
     e.preventDefault();
     const d = Math.abs(e.deltaY)>Math.abs(e.deltaX)? e.deltaY : e.deltaX;
-    target = clamp(target + d*1.15);
-    scheduleSnap();
+    clearTimeout(wheelIdle);
+    wheelIdle=setTimeout(()=>{ wheelLock=false; wheelAccum=0; },120); // gesture end
+    if(wheelLock) return;                            // ignore momentum tail
+    wheelAccum+=d;
+    if(Math.abs(wheelAccum)>=STEP){
+      const dir = wheelAccum>0 ? 1 : -1;
+      wheelLock=true; wheelAccum=0;
+      dir>0 ? next() : prev();
+    }
   },{passive:false});
 
   /* keyboard */
@@ -94,36 +101,39 @@
     else if(e.key==='Home'){goTo(0);} else if(e.key==='End'){goTo(N-1);}
   });
 
-  /* drag (pointer) */
-  let dragging=false,startX=0,startT=0,moved=0;
+  /* mouse drag-to-scrub (desktop only). Touch devices use the touch handlers
+     below — binding both made pointer + touch fight over `target` and jitter. */
   const ring=document.getElementById('cur-ring');
-  window.addEventListener('pointerdown',(e)=>{
-    if(e.target.closest('a,button,.next-arrow')) return;
-    dragging=true;startX=e.clientX;startT=target;moved=0;
-    clearTimeout(snapTimer);
-    if(ring) ring.classList.add('drag');
-  });
-  window.addEventListener('pointermove',(e)=>{
-    if(!dragging) return;
-    const dx=e.clientX-startX;moved=Math.abs(dx);
-    target=clamp(startT - dx*1.6);
-  });
-  function endDrag(){
-    if(!dragging) return;
-    dragging=false;
-    if(ring) ring.classList.remove('drag');
-    target = clamp(Math.round(target/vw)*vw);
+  if(!isTouch){
+    let dragging=false,startX=0,startT=0;
+    window.addEventListener('pointerdown',(e)=>{
+      if(e.target.closest('a,button,.next-arrow')) return;
+      dragging=true;startX=e.clientX;startT=target;
+      if(ring) ring.classList.add('drag');
+    });
+    window.addEventListener('pointermove',(e)=>{
+      if(!dragging) return;
+      target=clamp(startT - (e.clientX-startX)*1.6);
+    });
+    const endDrag=()=>{
+      if(!dragging) return;
+      dragging=false;
+      if(ring) ring.classList.remove('drag');
+      target = clamp(Math.round(target/vw)*vw);
+    };
+    window.addEventListener('pointerup',endDrag);
+    window.addEventListener('pointercancel',endDrag);
   }
-  window.addEventListener('pointerup',endDrag);
-  window.addEventListener('pointercancel',endDrag);
 
-  /* touch swipe */
-  let tsX=0,tsT=0;
-  window.addEventListener('touchstart',(e)=>{tsX=e.touches[0].clientX;tsT=target;},{passive:true});
-  window.addEventListener('touchmove',(e)=>{
-    const dx=e.touches[0].clientX-tsX;target=clamp(tsT-dx*1.4);
-  },{passive:true});
-  window.addEventListener('touchend',()=>{target=clamp(Math.round(target/vw)*vw);});
+  /* touch swipe (mobile / tablet) */
+  if(isTouch){
+    let tsX=0,tsT=0;
+    window.addEventListener('touchstart',(e)=>{tsX=e.touches[0].clientX;tsT=target;},{passive:true});
+    window.addEventListener('touchmove',(e)=>{
+      const dx=e.touches[0].clientX-tsX;target=clamp(tsT-dx*1.4);
+    },{passive:true});
+    window.addEventListener('touchend',()=>{target=clamp(Math.round(target/vw)*vw);});
+  }
 
   /* arrow + nav + page pill clicks */
   arrow && arrow.addEventListener('click',()=>{ activeIdx>=N-1?goTo(0):next(); });
