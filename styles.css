@@ -396,7 +396,7 @@ image-slot::part(empty){color:rgba(244,239,227,.62);font-family:"JetBrains Mono"
    =========================================================== */
 .case{display:grid;grid-template-columns:1.15fr 1fr;gap:calc(var(--u)*5.5);height:100%;align-items:center;}
 .case.flip .case__media{order:2;}
-.case__media{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:calc(var(--u)*2.4);height:82%;position:relative;}
+.case__media{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:calc(var(--u)*2.4);height:82%;min-height:0;position:relative;}
 .case__media .big{grid-row:1/3;}
 /* communication: 2x2 labelled social cards */
 .case__media.social{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:calc(var(--u)*2.6);height:82%;position:relative;}
@@ -415,7 +415,7 @@ image-slot::part(empty){color:rgba(244,239,227,.62);font-family:"JetBrains Mono"
 .case__media.five .s-c{grid-area:c;}
 .case__media.five .s-d{grid-area:d;}
 .case__media.five .s-e{grid-area:e;}
-.case__media .shot{position:relative;overflow:hidden;display:block;background:rgba(255,255,255,.035);cursor:pointer;}
+.case__media .shot{position:relative;overflow:hidden;display:block;min-width:0;min-height:0;background:rgba(255,255,255,.035);cursor:pointer;}
 .case__media .shot::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);pointer-events:none;}
 .case__media .shot .cover-img{transition:transform .6s var(--ease);}
 .case__media .shot:hover .cover-img{transform:scale(1.06);}
